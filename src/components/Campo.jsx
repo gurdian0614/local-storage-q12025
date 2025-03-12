@@ -1,4 +1,4 @@
-const Campo = ({id, iconName, inputType, placeHolder}) => {
+const Campo = ({id, iconName, inputType, placeHolder, onChange, value}) => {
     return (
       <div className="input-group mb-3">
         <span className="input-group-text">
@@ -9,6 +9,8 @@ const Campo = ({id, iconName, inputType, placeHolder}) => {
           type={inputType}
           id={id}
           placeholder={placeHolder}
+          onChange={onChange}
+          value={value}
         />
       </div>
     );

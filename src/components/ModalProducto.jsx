@@ -1,6 +1,16 @@
 import Campo from "./Campo";
+import useModalProducto from "../hooks/useModalProducto";
 
 const ModalProducto = () => {
+  const {
+    validar,
+    nombre,
+    setNombre,
+    descripcion,
+    setDescripcion,
+    precio,
+    setPrecio
+  } = useModalProducto(1)
     return (
       <div
         id="modalProducto"
@@ -26,6 +36,8 @@ const ModalProducto = () => {
                 iconName="fa-solid fa-gift"
                 inputType="text"
                 placeHolder="Nombre"
+                onChange={(e) => setNombre(e.target.value)}
+                value={nombre}
               />
 
               <Campo
@@ -33,6 +45,8 @@ const ModalProducto = () => {
                 iconName="fa-solid fa-comment"
                 inputType="text"
                 placeHolder="Descripción"
+                onChange={(e) => setDescripcion(e.target.value)}
+                value={descripcion}
               />
 
               <Campo
@@ -40,10 +54,12 @@ const ModalProducto = () => {
                 iconName="fa-solid fa-dollar-sign"
                 inputType="number"
                 placeHolder="Precio"
+                onChange={(e) => setPrecio(e.target.value)}
+                value={precio}
               />
             </div>
             <div className="modal-footer">
-              <button className="btn btn-success">
+              <button className="btn btn-success" onClick={() => validar()}>
                 <i className="fa-solid fa-floppy-disk" /> Guardar
               </button>
 
